@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./style.css" />
+    
+    <script
+      src="https://kit.fontawesome.com/3466402afb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <header>
+    </header>
+    <div>
+      <div class="card">
+        <div class="cardheader dark">Login</div>
+        <div class="cardbody">
+          <form>
+            <input type="text" id="user" placeholder="jhon1234567" />
+            <br />
+            <input type="password" id="pass" placeholder="123456789" />
+            <br />
+            <input type="button" onclick="checkinfo()" value="Submit"/>
+          </form>
+          <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Incorrect username or passward</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
