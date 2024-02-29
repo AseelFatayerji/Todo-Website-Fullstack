@@ -5,14 +5,14 @@ window.onload = function() {
         return
     }
     console.log(sessionStorage.getItem('user'));
-    //document.getElementById('list').innerHTML = sessionStorage.getItem('user');
+    document.getElementById('list').innerHTML = sessionStorage.getItem('user');
     //count += parseFloat(sessionStorage.getItem('count'));
-    console.log(sessionStorage.getItem('count'));
+    console.log(sessionStorage.getItem('user'));
 }
-function removeitem(id) {
-    let list = document.getElementById(id);
-    console.log(id)
-    list.remove();
+function removeitem(event) {    
+    let id = event.target.parentElement.id + "main";
+    let item = document.getElementById(id);
+    item.remove();
     count--;
   };
 
@@ -23,44 +23,29 @@ function checkinfo() {
     window.location.href = "/board.html";
     console.log("done");
   } else {
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    modal.style.display = "block";
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+    let pop = document.getElementById("popup");
+    pop.className = "show";
   }
+}
+function closepop(){
+  let pop = document.getElementById("popup");
+    pop.className = "hide";
 }
 function additem() {
   let node = document.createElement("li");
   let item = document.getElementById("item").value;
-  let check = document.createElement("input");
+  let check = document.createElement("i");
   let bullet = document.createElement("i");
 
   bullet.className = "fa-regular fa-circle-dot item";
 
   node.className ="text"
-  console.log(count)
-  node.id = count;
-  check.id = count;
+  
+  check.innerHTML = '<i class="fa-solid fa-trash-can trash" onclick="removeitem(event)"> </i>'
+  node.id = count +"main";
+  check.id = count+"";
   count++;
-  check.type = "checkbox";
-  check.className = "checkbox-round";
-  check.onclick = function () {
-    let list = document.getElementById(this.id);
-    removeitem(this.id)
-  };
+
   node.appendChild(bullet)
   node.appendChild(document.createTextNode(item));
   node.appendChild(check);
@@ -75,7 +60,7 @@ function additem() {
   if (document.getElementById("imp").checked) {
     let alert = document.createElement("i");
     alert.className = "fa-solid fa-circle-exclamation item";
-    node.className = "alerttext";
+    node.className = "important";
     node.replaceChild(alert, node.firstChild);
 
   }

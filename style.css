@@ -22,6 +22,12 @@ div h3 i:hover {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+span h3 i:hover {
+  background-color: var(--dark);
+  color: black;
+  border-radius: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 input {
   margin-top: 15px;
 }
@@ -59,6 +65,12 @@ ul{
 }
 li{
     font-size: large;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
 }
 .item{
     padding: 15px;
@@ -115,10 +127,22 @@ li{
   background-color: var(--alert);
   color: var(--darker);
 }
-.alerttext{
+.trash{
     color: var(--alert);
-    font-weight: bolder;
-    font-size: larger;
+    padding: 10px;
+}
+.trash:hover {
+  color: var(--darker);
+}
+.important{
+  color: var(--alert);
+  font-weight: bolder;
+  font-size: larger;
+}
+.popup{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 15px;
 }
 .text{
     color: var(--darker);
