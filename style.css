@@ -74,6 +74,7 @@ li{
 }
 .item{
     padding: 15px;
+    font-size: medium;
 }
 .checkbox-round {
     width: 1.3em;

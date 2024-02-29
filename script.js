@@ -6,8 +6,6 @@ window.onload = function() {
     }
     console.log(sessionStorage.getItem('user'));
     document.getElementById('list').innerHTML = sessionStorage.getItem('user');
-    //count += parseFloat(sessionStorage.getItem('count'));
-    console.log(sessionStorage.getItem('user'));
 }
 function removeitem(event) {    
     let id = event.target.parentElement.id + "main";
@@ -37,7 +35,7 @@ function additem() {
   let check = document.createElement("i");
   let bullet = document.createElement("i");
 
-  bullet.className = "fa-regular fa-circle-dot item";
+  bullet.className = "fa-solid fa-star-of-life item";
 
   node.className ="text"
   
