@@ -1,6 +1,6 @@
 let count = 0;
 window.onload = function() {
-    if ( sessionStorage.getItem('user') == "user" && sessionStorage.getItem('count') == "count"){
+    if ( sessionStorage.getItem('user') == "user"){
         count = 0
         return
     }
