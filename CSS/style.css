@@ -1,0 +1,169 @@
+:root {
+  --light: #f6f6f6;
+  --dark: #c4c4c4;
+  --main: #5694f2;
+  --alert: #f67058;
+  --info: #cfbaf0;
+  --accent: #fec347;
+  --correct: #53c2c5;
+}
+
+* {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0px;
+}
+body {
+  background-color: var(--light);
+}
+input {
+  margin-top: 15px;
+}
+input[type="submit"] {
+  background-color: var(--main);
+  border-color: transparent;
+  font-size: 26px;
+  border-radius: 8px;
+  width: 40%;
+}
+input[type="submit"]:hover {
+  filter: opacity(80%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input[type="text"] {
+  font-family: "Kalam", cursive;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 26px;
+  border-color: 3px solid black;
+  padding: 5px;
+  -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+}
+input[type="password"] {
+  font-family: "Kalam", cursive;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100%;
+  font-size: 26px;
+  border-color: 3px solid black;
+  -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+}
+input[type="email"] {
+  font-family: "Kalam", cursive;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 26px;
+  padding: 5px;
+  border-color: 3px solid black;
+  -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+}
+
+
+input[type="date"] {
+  border-radius: 8px;
+  margin-left: 15px;
+  border-color: white;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  font-size: large;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.item {
+  padding: 15px;
+  font-size: medium;
+}
+
+.icon {
+  border-radius: 8px;
+  padding: 10px;
+  align-self: self-end;
+  margin: 10px;
+}
+.card {
+  position: fixed;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 35%;
+  width: 35%;
+  height: max-content;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cardheader {
+  font-size: 40px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+.cardbody {
+  padding: 20px;
+  border-radius: 0px 0px 8px 8px;
+}
+.floatcontainer {
+  margin: 50px;
+  display: flex;
+}
+.floatchild {
+  flex: 1;
+}
+.light {
+  background-color: var(--light);
+  color: black;
+}
+.main {
+  background-color: var(--main);
+  color: black;
+}
+.accent {
+  background-color: var(--accent);
+  color: black;
+}
+.info {
+  background-color: var(--info);
+  color: black;
+}
+.correct {
+  background-color: var(--correct);
+  color: black;
+}
+.alert {
+  background-color: var(--alert);
+  color: black;
+}
+.hide {
+  display: none;
+}
+
+@media (min-width: 280px) and (max-width: 768px) {
+  .card {
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .floatcontainer {
+    display: block;
+  }
+  .floatchild {
+    flex: 0;
+  }
+}

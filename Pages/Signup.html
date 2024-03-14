@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/3466402afb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../Scripts/Signup.js"></script>
+  </head>
+
+  <body>
+    <form action="../PHP/Signup.php" method="post">
+      <div class="card">
+        <div class="cardheader main">Signup</div>
+        <div class="cardbody">
+          <input type="text" name="name" placeholder="jhon1234567" required />
+          <br />
+          <input
+            type="email"
+            name="email"
+            placeholder="jhondoe@gmail.com"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            placeholder="123456789"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            id="confirm"
+            name="confirm_password"
+            placeholder="123456789"
+            onkeyup="CheckPass()"
+            required
+          />
+          <br />
+          <div class="hide" id="alert">
+            <h3>password don't match</h3>
+          </div>
+          <input type="submit" value="Signnup" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
