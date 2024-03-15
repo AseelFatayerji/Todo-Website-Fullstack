@@ -84,7 +84,16 @@ nav {
   padding: 10px;
   font-size: 36px;
 }
-
+footer{
+  margin-top: 200%;
+  margin-left: 80%;
+}
+footer a{
+  font-size: 30px;
+}
+footer a:hover{
+  color: lightgray;
+}
 .inputs {
   text-align: center;
   align-content: center;
@@ -115,6 +124,7 @@ nav {
 }
 .user-container:hover {
   background-color: var(--main);
+  cursor: pointer;
 }
 .user {
   color: black;
@@ -124,15 +134,17 @@ nav {
   font-size: 36px;
   font-weight: bold;
 }
+.user:hover{
+  cursor: pointer;
+}
 .display-container {
   text-align: center;
   border-radius: 10px;
   border: 3px solid lightgray;
 }
 .display-container:hover {
-  text-align: center;
-  border-radius: 10px;
   background-color: lightgray;
+  cursor: pointer;
 }
 .display {
   color: black;
@@ -154,7 +166,7 @@ nav {
 .card {
   position: fixed;
   text-align: center;
-  width: 35%;
+  width: fit-content;
   height: fit-content;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -162,21 +174,29 @@ nav {
 
 .list-card {
   border-radius: 15px;
-  width: 130%;
-  font-size: 26px;
+  width: fit-content;
+  height: fit-content;
   text-align: center;
   background-color: white;
   border: 3px solid var(--accent);
   -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
-  height: fit-content;
+  
 }
 
 .list_cardheader {
+  font-size: 26px;
   text-align: center;
   padding: 20px;
   border-radius: 16px 16px 0px 0px;
+}
+.list_cardbody {
+  background-color: white;
+  font-size: 20x;
+  text-align: center;
+  padding: 20px;
+  border-radius: 0px 0px 16px 16px;
 }
 .trash {
   color: var(--alert);
@@ -213,10 +233,10 @@ nav {
   padding-bottom: 20px;
 }
 .edit-icon {
-  width: fit-content;
-  height: fit-content;
-  font-size: 22px;
-  padding: 3px 5px 10px 5px;
+  width: 10%;
+  height: 100%;
+  font-size: 21px;
+  padding: 11px 5px 10px 5px;
   background-color: white;
   border-radius: 14px 0px 0px 14px;
   border-right: transparent;
@@ -243,7 +263,7 @@ nav {
 }
 
 .edit-input {
-  font-size: 16px;
+  font-size: 20px;
   height: fit-content;
   padding: 5px;
 }
@@ -269,13 +289,14 @@ nav {
   -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
 }
+
 .fixed-center {
   position: fixed;
   left: 40%;
   top: 20%;
 }
 .right {
-  margin-left: 100%;
+  margin-left: 95%;
 }
 .floatcontainer {
   margin: 10px;
@@ -293,7 +314,9 @@ nav {
 .space-between {
   justify-content: space-between;
 }
-
+.mg-top-2 {
+  margin-top: 4.5%;
+}
 .mg-top-3 {
   margin-top: 3%;
 }
@@ -303,6 +326,7 @@ nav {
 .mg-top-5 {
   margin-top: 5%;
 }
+
 
 .mg-left-13 {
   margin-left: 13%;

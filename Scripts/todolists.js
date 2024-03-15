@@ -1,11 +1,42 @@
 window.onload = () => {
-  displayList();
-  setUsername();
-  if (localStorage.getItem("tesk-complete") == null) {
-    localStorage.setItem("task-complete", 0);
+  if (
+    localStorage.getItem("complete-task") == null &&
+    localStorage.getItem("delete-task") == null &&
+    localStorage.getItem("inprogress-task") == null &&
+    localStorage.getItem("ongoing-task") == null &&
+    localStorage.getItem("all-tasks") == null
+  ) {
     return;
   }
+  displayList();
+  setUsername();
 };
+
+function setLocalStorage(arr) {
+  let all = JSON.parse(localStorage.getItem("all-tasks") || "[]");
+  let itemscomplete = JSON.parse(localStorage.getItem("complete-task") || "[]");
+  let itemsprogress = JSON.parse(localStorage.getItem("inprogress-task") || "[]");
+  let itemsongoing = JSON.parse(localStorage.getItem("inprogress-task") || "[]");
+  for (let i = 0; i < arr.length; i++) {
+    let temp = arr[i];
+    all.push(temp);
+    if (temp.complete == 1 && !itemscomplete.includes(temp.item)) {
+      itemscomplete.push(temp.item);
+    } else if (!itemsprogress.includes(temp.item)) {
+      itemsprogress.push(temp.item);
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    let temp = arr[i];
+    if (!itemscomplete.includes(temp.item)) {
+      itemsongoing.push(temp.item);
+    }
+  }
+  localStorage.setItem("complete-task", JSON.stringify(itemscomplete));
+  localStorage.setItem("inprogress-task", JSON.stringify(itemsprogress));
+  localStorage.setItem("ongoing-task", JSON.stringify(itemsongoing));
+  localStorage.setItem("all-tasks", JSON.stringify(all));
+}
 function setUsername() {
   let user = grabName();
   document.getElementById("user").innerHTML = user.toUpperCase();
@@ -44,13 +75,14 @@ async function displayList() {
         let list_items = [];
         for (let i = 0; i < user_items.length; i++) {
           let temp = user_items[i];
-          if (!list_items.includes(user_items[i].list)) {
+          if (!list_items.includes(temp.list)) {
             list_items.push(temp.list);
           }
         }
         for (let i = 0; i < list_items.length; i++) {
           displayOneList(list_items[i], user_items);
         }
+        setLocalStorage(user_items);
       });
     })
     .catch(function (err) {
@@ -59,7 +91,7 @@ async function displayList() {
 }
 function displayOneList(list_name, arr) {
   let container = document.getElementById("lists");
-  let form = document.createElement("form");
+
   let card = document.createElement("div");
   let card_header = document.createElement("div");
   let card_body = document.createElement("div");
@@ -68,39 +100,47 @@ function displayOneList(list_name, arr) {
   let ul = document.createElement("ul");
   let add = document.createElement("i");
 
-  let in1 = hiddenInput("username", grabName());
-  let in2 = hiddenInput("list_name", list_name);
-
-  form.method = "post";
-  form.appendChild(in1);
-  form.appendChild(in2);
-
   add.className = "fa-solid fa-plus add-icon";
   add.onclick = () => {
     displayAddTaskPop(list_name);
   };
 
-  let pop_container = createAddPop(form,list_name);
   card.className = "list-card accent-bg";
   card_header.className =
     "list_cardheader accent-bg floatcontainer space-between";
   label.innerText = list_name;
+  let pop_container = createAddPop(list_name);
+
   card_header.appendChild(label);
   card_header.appendChild(add);
-  card_body.className = "cardbody";
+  card_body.className = "list_cardbody";
 
   for (let i = 0; i < arr.length; i++) {
     let li = document.createElement("li");
     let item = document.createElement("div");
     let trash = document.createElement("i");
-    new_contanier = createPop(form, i);
-    item.className = "item floatcontainer space-between";
+    let form = document.createElement("form");
+    let in1 = hiddenInput("username", grabName());
+    let in2 = hiddenInput("list_name", list_name);
+
+    form.method = "post";
+    form.appendChild(in1);
+    form.appendChild(in2);
+
+    let temp = arr[i];
+
+    let new_contanier = createPop(form, i);
+    item.className = "floatcontainer space-between";
     trash.className = "fa-solid fa-trash-can trash";
     trash.onclick = () => {
+      let cancel = JSON.parse(localStorage.getItem("delete-task") || "[]");
+
+      cancel.push(temp);
+      localStorage.setItem("delete-task", JSON.stringify(cancel));
+
       changeAction(form, "../PHP/DeleteTask.php");
     };
 
-    let temp = arr[i];
     let in3 = hiddenInput("item", temp.item);
     form.appendChild(in3);
     if (temp.list == list_name && temp.complete != 1) {
@@ -130,11 +170,13 @@ function displayOneList(list_name, arr) {
         left.appendChild(label);
         right.appendChild(trash);
         right.appendChild(edit);
-        right.appendChild(new_contanier);
+
         item.appendChild(left);
         item.appendChild(right);
 
-        li.appendChild(item);
+        form.appendChild(item);
+        form.appendChild(new_contanier);
+        li.appendChild(form)
         ul.appendChild(li);
       } else {
         let dot = document.createElement("i");
@@ -149,22 +191,19 @@ function displayOneList(list_name, arr) {
         right.appendChild(edit);
         item.appendChild(left);
         item.appendChild(right);
-        li.appendChild(item);
-        li.appendChild(new_contanier);
+
+        form.appendChild(item);
+        form.appendChild(new_contanier);
+        li.appendChild(form)
         ul.appendChild(li);
       }
-    } else {
-      let count = parseInt(localStorage.getItem("task-complete"));
-      count++;
-      localStorage.setItem("task-complete", count);
     }
   }
   card_body.appendChild(ul);
   card.appendChild(card_header);
   card.appendChild(card_body);
   card.appendChild(pop_container);
-  form.appendChild(card);
-  container.appendChild(form);
+  container.appendChild(card);
 }
 function displayAddPop() {
   document.getElementById("create").classList.remove("hide");
@@ -173,7 +212,7 @@ function displayEditPop(i) {
   document.getElementById("edit" + i).classList.remove("hide");
 }
 function displayAddTaskPop(i) {
-  document.getElementById("add"+i).classList.remove("hide");
+  document.getElementById("add" + i).classList.remove("hide");
 }
 function createPop(form, i) {
   let inputs = document.createElement("div");
@@ -185,13 +224,13 @@ function createPop(form, i) {
   input.type = "text";
   input.name = "newitem";
 
-  icon.className = "fa-solid fa-thumbtack mg-top-4 edit-icon";
+  icon.className = "fa-solid fa-thumbtack mg-top-2 edit-icon";
   submit.type = "submit";
   submit.onclick = () => {
     changeAction(form, "../PHP/EditTask.php");
   };
   inputs.id = "edit" + i;
-  inputs.className = "edit-box hide floatcontainer space-between ";
+  inputs.className = "edit-box  hide floatcontainer space-between ";
   input.className = "edit-input";
   submit.className = "edit-button main-bg";
 
@@ -200,7 +239,7 @@ function createPop(form, i) {
   inputs.appendChild(submit);
   return inputs;
 }
-function createAddPop(form,i) {
+function createAddPop(i) {
   let inputs = document.createElement("div");
   let inputstop = document.createElement("div");
   let inputsbottom = document.createElement("div");
@@ -217,18 +256,18 @@ function createAddPop(form,i) {
 
   check.type = "checkbox";
   check.name = "imp";
-  check.value = "1"
+  check.value = "1";
   check.id = "check";
 
-  label.htmlFor =  check.id;
-  label.innerText = "Important"
-  label.className ="checkLabel";
+  label.htmlFor = check.id;
+  label.innerText = "Important";
+  label.className = "checkLabel";
   icon.className = "fa-solid fa-thumbtack edit-icon";
   submit.type = "submit";
   submit.onclick = () => {
     changeAction(form, "../PHP/AddTask.php");
   };
-  inputs.id = "add"+i;
+  inputs.id = "add" + i;
   inputs.className = "edit-box hide";
   inputsbottom.className = "floatcontainer space-even ";
   input.className = "edit-input";

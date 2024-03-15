@@ -6,6 +6,7 @@ $username = $_POST['username'];
 $name = $_POST['list_name'];
 $item = $_POST['item'];
 $complete = 1;
+echo "$username $name $item $complete";
 $query = $mysqli->prepare('UPDATE lists SET complete = ? WHERE user_name = ? and list_name=? and item =?;');
 $query->bind_param('isss',$complete, $username, $name, $item);
 $query->execute();

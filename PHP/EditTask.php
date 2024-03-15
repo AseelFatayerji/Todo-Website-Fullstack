@@ -7,7 +7,7 @@ $name = $_POST['list_name'];
 $item = $_POST['item'];
 $newitem = $_POST['newitem'];
 echo "$item $newitem";
-$query = $mysqli->prepare('UPDATE lists SET item = ? WHERE user_name = ? and list_name=? and item =?;');
+$query = $mysqli->prepare('UPDATE lists SET item = ? WHERE user_name = ? and list_name = ? and item = ?;');
 $query->bind_param('ssss',$newitem, $username, $name, $item);
 $query->execute();
 $response['status'] = "success";
