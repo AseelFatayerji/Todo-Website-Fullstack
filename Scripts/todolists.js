@@ -1,6 +1,9 @@
 window.onload = () => {
   displayList();
   setUsername();
+  if (localStorage.getItem("tesk-complete") == null) {
+    return;
+  }
 };
 function setUsername() {
   let user = grabName();
@@ -61,12 +64,12 @@ function displayOneList(list_name, arr) {
   let card_body = document.createElement("div");
   let ul = document.createElement("ul");
 
-  let in1 =  hiddenInput("username",grabName());
-  let in2 =  hiddenInput("list_name",list_name);
+  let in1 = hiddenInput("username", grabName());
+  let in2 = hiddenInput("list_name", list_name);
+
+  form.method = "post";
   form.appendChild(in1);
   form.appendChild(in2);
-  form.action = "../PHP/DeleteTask.php";
-  form.method = "post";
 
   card.className = "list-card accent-bg";
   card_header.className = "list_cardheader accent-bg";
@@ -76,34 +79,41 @@ function displayOneList(list_name, arr) {
   for (let i = 0; i < arr.length; i++) {
     let li = document.createElement("li");
     let item = document.createElement("div");
-    let trash = document.createElement("i");   
+    let trash = document.createElement("i");
 
+    new_contanier = createPop(form);
     item.className = "item floatcontainer space-between";
     trash.className = "fa-solid fa-trash-can trash";
-    trash.addEventListener("click", function () {
-      form.submit();
-    });
+    trash.onclick = () => {
+      changeAction(form, "../PHP/DeleteTask.php");
+    };
 
     let temp = arr[i];
-    let in3 =  hiddenInput("item",temp.item);
-  form.appendChild(in3);
-    if (temp.list == list_name && temp.complete == 1) {
+    let in3 = hiddenInput("item", temp.item);
+    form.appendChild(in3);
+    if (temp.list == list_name && temp.complete != 1) {
       let left = document.createElement("div");
       let right = document.createElement("div");
       let label = document.createElement("label");
       let edit = document.createElement("i");
-      left.className = "floatcontainer gap space-between"
-      right.className = "floatcontainer gap space-between"
-      edit.className = "fa-solid fa-pen-to-square main-text";
+
+      left.className = "floatcontainer gap space-between";
+      right.className = "floatcontainer gap space-even";
+      edit.className = "fa-solid fa-pen-to-square edit-icon";
+      edit.onclick = () => {
+        displayEditPop();
+      };
+
       label.innerText = temp.item;
       label.name = "item";
-      if (temp.important == 1) {
+      if (temp.imp == 1) {
         let imp = document.createElement("i");
         imp.className = "fa-solid fa-circle-exclamation";
         left.appendChild(imp);
         left.appendChild(label);
         right.appendChild(trash);
         right.appendChild(edit);
+        right.appendChild(new_contanier);
         item.appendChild(left);
         item.appendChild(right);
         item.classList.add("alert-text");
@@ -119,6 +129,7 @@ function displayOneList(list_name, arr) {
         item.appendChild(left);
         item.appendChild(right);
         li.appendChild(item);
+        li.appendChild(new_contanier);
         ul.appendChild(li);
       }
     }
@@ -126,17 +137,49 @@ function displayOneList(list_name, arr) {
   card_body.appendChild(ul);
   card.appendChild(card_header);
   card.appendChild(card_body);
-  form.appendChild(card)
+  form.appendChild(card);
   container.appendChild(form);
 }
-function displayPop() {
+function displayAddPop() {
   document.getElementById("create").classList.remove("hide");
 }
-function hiddenInput(name,value){
-  let input =  document.createElement("input");
+function displayEditPop() {
+  document.getElementById("edit").classList.remove("hide");
+}
+function createPop(form) {
+  let inputs = document.createElement("div");
+
+  let icon = document.createElement("i");
+  let input = document.createElement("input");
+  let submit = document.createElement("input");
+
+  input.type = "text";
+  input.name = "newitem";
+
+  icon.className = "a-solid fa-thumbtack icon-edit";
+  submit.type = "submit";
+  submit.onclick = () => {
+    changeAction(form, "../PHP/Edit.php");
+  };
+  inputs.id = "edit";
+  inputs.className = "edit-box hide floatcontainer space-even ";
+  input.className = "edit-input"
+  submit.className = "edit-button main-bg";
+
+  inputs.appendChild(icon);
+  inputs.appendChild(input);
+  inputs.appendChild(submit);
+  return inputs;
+}
+function hiddenInput(name, value) {
+  let input = document.createElement("input");
   input.type = "text";
   input.name = name;
   input.value = value;
-  input.classList.add("hide")
+  input.classList.add("hide");
   return input;
+}
+function changeAction(form, url) {
+  form.action = url;
+  form.submit();
 }
