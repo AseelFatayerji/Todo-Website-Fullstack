@@ -4,7 +4,7 @@ window.onload = () =>{
 
 function setUsername(){
     let user = grabUsername()
-    document.getElementById("Username").innerText = user.toUpperCase();
+    document.getElementById("user").innerHTML = user.toUpperCase();
 }
 function Redirect(item){
     let user = grabUsername()
@@ -15,14 +15,15 @@ function grabUsername(){
     let user = "";
     let url = window.location.href;
     let index = 0;
-    for(i = 0; i < url.length;i++){
+    for(let i = 0; i < url.length;i++){
         if(url[i] == "="){
             index = i+1;
             break;
         }
     }
-    for(i = index; i < url.length;i++){
+    for(let i = index; i < url.length;i++){
         user += url[i];
     }
+    user = user.replace("#","");
     return user;
 }
