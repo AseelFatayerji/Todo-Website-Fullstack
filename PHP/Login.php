@@ -14,6 +14,10 @@ $num_rows = $query->num_rows();
 
 if ($num_rows == 0) {
     $response['status'] = "user not found";
+//     echo "<script>
+//     localStorage.setItem('loginfailed', 'true');  
+// </script>";
+    header("Location:http://localhost/fullstack/Todo%20Website", true, 301);
 } else {
     if ($password == $hashed_password) {
         $response['status'] = "logged in";
@@ -24,11 +28,11 @@ if ($num_rows == 0) {
         exit;
     } else {
         $response['status'] = "incorrect credentials $email";
-        echo '<script>
-        document.getElementById("popup").classList.remove("hide")
-</script>';
+//         echo "<script>
+//         localStorage.setItem('loginfailed', 'true');  
+// </script>";
         header("Location:http://localhost/fullstack/Todo%20Website", true, 301);
-        exit;
+
     }
 }
 echo json_encode($response);

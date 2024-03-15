@@ -1,9 +1,21 @@
 <?php
-include('connection.php');
-$query = $mysqli->prepare('SELECT * FROM listst');
-$query->bind_param('ss', $email, $email);
-$query->execute();
-$query->store_result();
-$query->bind_result($email, $name, $hashed_password);
-$query->fetch();
-$num_rows = $query->num_rows();
+include 'connection.php';
+$readSql = "SELECT * FROM lists";
+$result = mysqli_query($mysqli, $readSql);
+
+$list = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $item = array(
+        'id' => $row['id'],
+        'name' => $row['user_name'],
+        'list' => $row['list_name'],
+        'item' => $row['item'],
+        'imp' => $row['important'],
+        'complete' => $row['complete']
+
+    );
+    $list[] = $item;    
+}
+echo json_encode($list);
+
+

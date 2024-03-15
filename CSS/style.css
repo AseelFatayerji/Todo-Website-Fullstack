@@ -95,7 +95,6 @@ nav {
   align-items: center;
 }
 .icon {
-    z-index: 1;
   width: 10%;
   height: 100%;
   text-align: center;
@@ -238,6 +237,9 @@ nav {
   background-color: var(--alert);
   color: black;
 }
+.alert-border {
+    border-color: var(--alert);
+  }
 .hide {
   display: none;
 }
