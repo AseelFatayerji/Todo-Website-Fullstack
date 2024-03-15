@@ -47,7 +47,7 @@
     <span>
       <form class="hide" id="create" action="../PHP/Create.php" method="post">
           <div class="card fixed-center">
-            <div class="cardheader info-bg">Create List</div>
+            <div class="cardheader info-bg info-text">Create List</div>
             <div class="cardbody">
               <input
               class="hide"
@@ -57,19 +57,18 @@
                   placeholder="Chores"
                 />
               <div class="floatcontainer inputs">
-                <i class="fa-solid fa-user icon"></i
-                ><input
+                <i class="fa-solid fa-clipboard-list icon"></i><input
                   type="text"
                   name="list_name"
                   placeholder="Chores"
                 />
               </div>
               <div  class="floatcontainer inputs">
-                <i class="fa-solid fa-lock icon"></i>
+                <i class="fa-solid fa-thumbtack icon info-text"></i>
                 <input type="text" name="item" placeholder="Clean bedroom" />
               </div>
               <div>
-                <input type="checkbox" name="imp" value="1"/>Important
+                <input type="checkbox" name="imp" value="1"/>  Important
               </div>
               <div>
                 <input class="info-bg" type="submit" value="Create List"/>

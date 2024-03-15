@@ -8,7 +8,7 @@ $item = $_POST['item'];
 if (isset($_POST['imp']) && $_POST['imp'] == '1') {
     $important = $_POST['imp'];
     $query = $mysqli->prepare('INSERT INTO lists (user_name,list_name,item,important) VALUES(?,?,?,?);');
-    $query->bind_param('sss', $username, $name, $item, $important);
+    $query->bind_param('sssi', $username, $name, $item, $important);
     $query->execute();
     $response['status'] = "success";
     $response['message'] = "list $name was created successfully for $username";

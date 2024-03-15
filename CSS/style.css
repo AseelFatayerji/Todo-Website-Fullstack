@@ -177,12 +177,13 @@ nav {
   -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  height: fit-content;
 }
 
 .list_cardheader {
   text-align: center;
   padding: 20px;
-  border-radius: 16px 16px 0px 0px;
+  border-radius: 16px 16px 0px 0px;  
 }
 .trash {
   color: var(--alert);
@@ -213,7 +214,6 @@ nav {
   padding: 20px;
   border-radius: 0px 0px 15px 15px;
   background-color: white;
-  height: 100%;
 }
 .main {
   width: 80%;
@@ -256,12 +256,14 @@ nav {
 .space-between {
   justify-content: space-between;
 }
+
 .mg-top-3 {
   margin-top: 3%;
 }
 .mg-top-5 {
   margin-top: 5%;
 }
+
 .mg-left-35 {
   margin-left: 35%;
 }
@@ -292,9 +294,23 @@ nav {
 .alert-border {
   border-color: var(--alert);
 }
+
 .main-border {
   border-color: var(--main);
   color: black;
+}
+.correct-text{
+  color: var(--correct);
+}
+
+.alert-text {
+  color: var(--alert);
+}
+.info-text {
+  color: var(--info);
+}
+.main-text {
+  color: var(--main);
 }
 .hide {
   display: none;
