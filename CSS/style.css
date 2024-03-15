@@ -61,11 +61,6 @@ input[type="email"] {
   box-shadow: -8px 14px 0px -10px rgba(0, 0, 0, 0.75);
 }
 
-input[type="date"] {
-  border-radius: 8px;
-  margin-left: 15px;
-  border-color: white;
-}
 a {
   text-decoration: none;
   font-size: 15px;
@@ -160,14 +155,14 @@ nav {
   position: fixed;
   text-align: center;
   width: 35%;
-  height: max-content;
-  padding-bottom: 30px;
-  border-radius: 10px;
+  height: fit-content;
+  border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .list-card {
   border-radius: 15px;
-  width: max-content;
+  width: 130%;
   font-size: 26px;
   text-align: center;
   background-color: white;
@@ -190,12 +185,16 @@ nav {
   filter: brightness(90%);
   cursor: pointer;
 }
+.complete:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
 .add-icon {
   font-size: 20px;
   border-radius: 15px;
   padding: 10px;
   border: 2px solid var(--info);
-  background-color: white;
+  background-color: transparent;
 }
 .add-icon:hover {
   background-color: var(--info);
@@ -209,30 +208,30 @@ nav {
   border-radius: 10px 10px 0px 0px;
 }
 .cardbody {
-  padding: 10px;
   border-radius: 0px 0px 15px 15px;
   background-color: white;
+  padding-bottom: 20px;
 }
-.icon-edit {
+.edit-icon {
   width: fit-content;
   height: fit-content;
-  font-size: 26px;
-  text-align: center;
-  margin-top: 13px;
+  font-size: 22px;
+  padding: 3px 5px 10px 5px;
   background-color: white;
   border-radius: 14px 0px 0px 14px;
   border-right: transparent;
   border-left: 2px solid rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(0, 0, 0, 0.75);
   border-top: 2px solid black;
-  -webkit-box-shadow: 10px 13px 0px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 13px 0px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 13px 0px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
 }
-.edit-icon {
-  color: var(--main);
+.checkLabel{
+  font-size:20px;
+  padding-left: 5px;
 }
-.edit-icon:hover {
+.edit-hover:hover {
   filter: brightness(90%);
   cursor: pointer;
 }
@@ -242,6 +241,7 @@ nav {
   align-items: center;
   text-align: center;
 }
+
 .edit-input {
   font-size: 16px;
   height: fit-content;
@@ -251,11 +251,11 @@ nav {
   font-size: 16px;
   height: fit-content;
   width: max-content;
+  margin-left: 10px;
 }
 
 .main {
   width: 80%;
-  margin-left: 16%;
   padding: 20px;
 }
 
@@ -275,7 +275,7 @@ nav {
   top: 20%;
 }
 .right {
-  margin-left: 90%;
+  margin-left: 100%;
 }
 .floatcontainer {
   margin: 10px;
@@ -297,10 +297,19 @@ nav {
 .mg-top-3 {
   margin-top: 3%;
 }
+.mg-top-4 {
+  margin-top: 3.6%;
+}
 .mg-top-5 {
   margin-top: 5%;
 }
 
+.mg-left-13 {
+  margin-left: 13%;
+}
+.mg-left-16 {
+  margin-left: 16%;
+}
 .mg-left-35 {
   margin-left: 35%;
 }
