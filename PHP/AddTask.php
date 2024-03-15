@@ -11,7 +11,7 @@ if (isset($_POST['imp']) && $_POST['imp'] == '1') {
     $query->execute();
     $response['status'] = "success";
     $response['message'] = "list $name was created successfully for $username";
-    header("Location:http://localhost/fullstack/Todo%20Website/Front-end/Pages/Todolist.html?username=$username", true, 301);
+    header("Location:http://localhost/fullstack/Todo%20Website/Pages/Todolist.html?username=$username", true, 301);
 
     exit;
 } else {
@@ -20,7 +20,7 @@ if (isset($_POST['imp']) && $_POST['imp'] == '1') {
     $query->execute();
     $response['status'] = "success";
     $response['message'] = "list $name was created successfully for $username";
-    header("Location:http://localhost/fullstack/Todo%20Website/Front-end/Pages/Todolist.html?username=$username", true, 301);
+    header("Location:http://localhost/fullstack/Todo%20Website/Pages/Todolist.html?username=$username", true, 301);
 }
 
 echo json_encode($response);

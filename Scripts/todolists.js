@@ -60,7 +60,7 @@ function grabName() {
   return user;
 }
 async function displayList() {
-  const lists = await fetch("../../Backend/DisplayLists.php")
+  const lists = await fetch("../PHP/DisplayLists.php")
     .then(function (response) {
       let results = response.json();
       results.then(function (list) {
@@ -138,7 +138,7 @@ function displayOneList(list_name, arr) {
       cancel.push(temp);
       localStorage.setItem("delete-task", JSON.stringify(cancel));
 
-      changeAction(form, "../../Backend/DeleteTask.php");
+      changeAction(form, "../PHP/DeleteTask.php");
     };
 
     let in3 = hiddenInput("item", temp.item);
@@ -162,7 +162,7 @@ function displayOneList(list_name, arr) {
         let imp = document.createElement("i");
         imp.className = "fa-solid fa-circle-exclamation complete";
         imp.onclick = () => {
-          changeAction(form, "../../Backend/CompleteTask.php");
+          changeAction(form, "../PHP/CompleteTask.php");
         };
         item.classList.add("alert-text");
 
@@ -182,7 +182,7 @@ function displayOneList(list_name, arr) {
         let dot = document.createElement("i");
         dot.className = "fa-regular fa-circle-check correct-text complete";
         dot.onclick = () => {
-          changeAction(form, "../../Backend/CompleteTask.php");
+          changeAction(form, "../PHP/CompleteTask.php");
         };
 
         left.appendChild(dot);
@@ -227,7 +227,7 @@ function createPop(form, i) {
   icon.className = "fa-solid fa-thumbtack mg-top-2 edit-icon";
   submit.type = "submit";
   submit.onclick = () => {
-    changeAction(form, "../../Backend/EditTask.php");
+    changeAction(form, "../PHP/EditTask.php");
   };
   inputs.id = "edit" + i;
   inputs.className = "edit-box  hide floatcontainer space-between ";
@@ -262,10 +262,10 @@ function createAddPop(i) {
   label.htmlFor = check.id;
   label.innerText = "Important";
   label.className = "checkLabel";
-  icon.className = "fa-solid fa-thumbtack  edit-icon-2";
+  icon.className = "fa-solid fa-thumbtack mg-top-3 edit-icon-2";
   submit.type = "submit";
   submit.onclick = () => {
-    changeAction(form, "../../Backend/AddTask.php");
+    changeAction(form, "../PHP/AddTask.php");
   };
   inputs.id = "add" + i;
   inputs.className = "edit-box hide";
