@@ -41,8 +41,42 @@
     </nav>
     <div class="main" name="body">
       <div class="search"></div>
-      <div class="right"></div>
-      <div class="lists" id="lists"></div>
+      <div class="right"><i class="fa-solid fa-plus add-icon" onclick="displayPop()"></i></div>
+      <div class="lists floatcontainer space-even" id="lists"></div>
     </div>
+    <span>
+      <form class="hide" id="create" action="../PHP/Create.php" method="post">
+          <div class="card fixed-center">
+            <div class="cardheader info-bg">Create List</div>
+            <div class="cardbody">
+              <input
+              class="hide"
+                  type="text"
+                  id="label"
+                  name="username"
+                  placeholder="Chores"
+                />
+              <div class="floatcontainer inputs">
+                <i class="fa-solid fa-user icon"></i
+                ><input
+                  type="text"
+                  name="list_name"
+                  placeholder="Chores"
+                />
+              </div>
+              <div  class="floatcontainer inputs">
+                <i class="fa-solid fa-lock icon"></i>
+                <input type="text" name="item" placeholder="Clean bedroom" />
+              </div>
+              <div>
+                <input type="checkbox" name="imp" value="1"/>Important
+              </div>
+              <div>
+                <input class="info-bg" type="submit" value="Create List"/>
+              </div>
+            </div>
+          </div>
+      </form>
+    </span>
   </body>
 </html>

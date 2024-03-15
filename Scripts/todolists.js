@@ -1,7 +1,14 @@
 window.onload = () => {
     displayList();
+    setUsername()
 };
-function grabUsername() {
+function setUsername(){
+    let user = grabName()
+    document.getElementById("user").innerHTML = user.toUpperCase();
+    document.getElementById("label").value = user;
+}
+
+function grabName() {
   let user = "";
   let url = window.location.href;
   let index = 0;
@@ -22,7 +29,7 @@ async function displayList() {
     .then(function (response) {
       let results = response.json();
       results.then(function (list) {
-        let user = grabUsername()
+        let user = grabName()
         let user_items = [];
         for( let i = 0; i < list.length;i++){
             let temp = list[i];
@@ -38,7 +45,7 @@ async function displayList() {
             }
         }
         for(let i = 0; i < list_items.length;i++){
-            displayOneList(list_items, user_items);
+            displayOneList(list_items[i], user_items);
         }
         
       });
@@ -54,9 +61,10 @@ function displayOneList(list_name,arr){
     let card_body = document.createElement("div");
     let ul = document.createElement("ul");
     
-    card.className = "list-card";
+    card.className = "list-card accent-bg";
     card_header.className = "list_cardheader accent-bg";
     card_header.innerText = list_name;
+    card_body.className ='cardbody'
     for(let i = 0; i < arr.length ;i++){
         let li = document.createElement("li");
         let item = document.createElement("div");
@@ -76,4 +84,7 @@ function displayOneList(list_name,arr){
     card.appendChild(card_header);
     card.appendChild(card_body);
     container.appendChild(card);
+}
+function displayPop(){
+    document.getElementById("create").classList.remove("hide");
 }
