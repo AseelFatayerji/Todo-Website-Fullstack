@@ -169,7 +169,7 @@ nav {
 }
 .list-card {  
   border-radius: 15px;
-  width: 40%;
+  width: max-content;
   font-size: 26px;
   text-align: center;
   background-color: white;
@@ -211,7 +211,7 @@ nav {
   border-radius: 10px 10px 0px 0px;
 }
 .cardbody {
-  padding: 20px;
+  padding: 10px;
   border-radius: 0px 0px 15px 15px;
   background-color: white;
 }

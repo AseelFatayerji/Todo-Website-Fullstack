@@ -55,24 +55,39 @@ async function displayList() {
 }
 function displayOneList(list_name, arr) {
   let container = document.getElementById("lists");
+  let form = document.createElement("form");
   let card = document.createElement("div");
   let card_header = document.createElement("div");
   let card_body = document.createElement("div");
   let ul = document.createElement("ul");
 
+  let in1 =  hiddenInput("username",grabName());
+  let in2 =  hiddenInput("list_name",list_name);
+  form.appendChild(in1);
+  form.appendChild(in2);
+  form.action = "../PHP/DeleteTask.php";
+  form.method = "post";
+
   card.className = "list-card accent-bg";
   card_header.className = "list_cardheader accent-bg";
   card_header.innerText = list_name;
   card_body.className = "cardbody";
+
   for (let i = 0; i < arr.length; i++) {
     let li = document.createElement("li");
     let item = document.createElement("div");
-    let trash = document.createElement("i");
+    let trash = document.createElement("i");   
+
     item.className = "item floatcontainer space-between";
     trash.className = "fa-solid fa-trash-can trash";
+    trash.addEventListener("click", function () {
+      form.submit();
+    });
 
     let temp = arr[i];
-    if (temp.list == list_name && temp.complete != 1) {
+    let in3 =  hiddenInput("item",temp.item);
+  form.appendChild(in3);
+    if (temp.list == list_name && temp.complete == 1) {
       let left = document.createElement("div");
       let right = document.createElement("div");
       let label = document.createElement("label");
@@ -81,6 +96,7 @@ function displayOneList(list_name, arr) {
       right.className = "floatcontainer gap space-between"
       edit.className = "fa-solid fa-pen-to-square main-text";
       label.innerText = temp.item;
+      label.name = "item";
       if (temp.important == 1) {
         let imp = document.createElement("i");
         imp.className = "fa-solid fa-circle-exclamation";
@@ -110,8 +126,17 @@ function displayOneList(list_name, arr) {
   card_body.appendChild(ul);
   card.appendChild(card_header);
   card.appendChild(card_body);
-  container.appendChild(card);
+  form.appendChild(card)
+  container.appendChild(form);
 }
 function displayPop() {
   document.getElementById("create").classList.remove("hide");
+}
+function hiddenInput(name,value){
+  let input =  document.createElement("input");
+  input.type = "text";
+  input.name = name;
+  input.value = value;
+  input.classList.add("hide")
+  return input;
 }

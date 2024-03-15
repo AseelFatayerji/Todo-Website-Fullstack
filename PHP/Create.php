@@ -1,7 +1,6 @@
 <?php
 include 'connection.php';
 $username = $_POST['username'];
-echo $username;
 $name = $_POST['list_name'];
 $item = $_POST['item'];
 
