@@ -268,7 +268,7 @@ function createAddPop(i) {
     changeAction(form, "../../Backend/AddTask.php");
   };
   inputs.id = "add" + i;
-  inputs.className = "edit-box ";
+  inputs.className = "edit-box hide";
   inputsbottom.className = "floatcontainer space-even ";
   input.className = "edit-input";
   submit.className = "edit-button info-bg";
