@@ -24,7 +24,7 @@ if ($num_rows == 0) {
         $response['user_id'] = $id;
         $response['name'] = $name;
         $response['email'] = $email;
-        header("Location:http://localhost/fullstack/Todo%20Website/Front-end/Pages/Porfile.html?username=$name", true, 301);
+        header("Location:http://localhost/fullstack/Todo%20Website/Front-end/Pages/Profile.html?username=$name", true, 301);
         exit;
     } else {
         $response['status'] = "incorrect credentials $email";

@@ -85,10 +85,12 @@ nav {
   font-size: 36px;
 }
 footer{
-  margin-top: 200%;
-  margin-left: 80%;
+  position: fixed;
+  margin-top: 30%;
+  margin-left: 10%;
 }
 footer a{
+  color: black;
   font-size: 30px;
 }
 footer a:hover{
@@ -175,13 +177,13 @@ footer a:hover{
 .list-card {
   border-radius: 15px;
   width: fit-content;
-  height: fit-content;
+  height: max-content;
   text-align: center;
   background-color: white;
   border: 3px solid var(--accent);
-  -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
+box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
   
 }
 
@@ -195,7 +197,7 @@ footer a:hover{
   background-color: white;
   font-size: 20x;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: 0px 0px 16px 16px;
 }
 .trash {
@@ -237,6 +239,21 @@ footer a:hover{
   height: 100%;
   font-size: 21px;
   padding: 11px 5px 10px 5px;
+  background-color: white;
+  border-radius: 14px 0px 0px 14px;
+  border-right: transparent;
+  border-left: 2px solid rgba(0, 0, 0, 0.75);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  border-top: 2px solid black;
+  -webkit-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
+}
+.edit-icon-2 {
+  width: 10%;
+  height: 100%;
+  font-size: 26px;
+  padding: 4px  5px  12px  5px;
   background-color: white;
   border-radius: 14px 0px 0px 14px;
   border-right: transparent;
@@ -301,6 +318,7 @@ footer a:hover{
 .floatcontainer {
   margin: 10px;
   display: flex;
+  overflow-y: auto;
 }
 .gap {
   gap: 10px;
@@ -325,6 +343,9 @@ footer a:hover{
 }
 .mg-top-5 {
   margin-top: 5%;
+}
+.mg-top-6 {
+  margin-top: 6%;
 }
 
 

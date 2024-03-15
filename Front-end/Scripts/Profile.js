@@ -40,7 +40,7 @@ function Redirect(item) {
   let user = grabUsername();
   let loc = item.id;
   window.location.href =
-    "http://localhost/fullstack/Todo%20Website/Pages/" +
+    "http://localhost/fullstack/Todo%20Website/Front-end/Pages/" +
     loc +
     "?username=" +
     user;

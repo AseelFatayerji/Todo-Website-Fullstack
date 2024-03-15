@@ -27,6 +27,7 @@
 
   <body>
     <nav>
+      <header>
       <div id="user_name" class="user-container">
         <a href="#" id="Profile.html" onclick="Redirect(this)" class="user"
           ><label id="user">User Name</label></a
@@ -34,12 +35,12 @@
       </div>
       <div class="display-container">
         <a href="#" id="TodoList.html" onclick="Redirect(this)" class="display"
-          >Display Lists</a
+          ><label>Display Lists</label></a
         >
-      </div>
-      <footer></footer>
+      </div></header>
+      <footer ><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i></a></footer>
     </nav>
-    <div class="main mg-left-13" name="body">
+    <div class="main mg-left-16" name="body">
       <div class="search"></div>
       <div class="right"><i class="fa-solid fa-plus add-icon" onclick="displayAddPop()"></i></div>
       <div class="floatcontainer gap space-even" id="lists"></div>

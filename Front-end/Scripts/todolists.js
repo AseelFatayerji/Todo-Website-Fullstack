@@ -262,13 +262,13 @@ function createAddPop(i) {
   label.htmlFor = check.id;
   label.innerText = "Important";
   label.className = "checkLabel";
-  icon.className = "fa-solid fa-thumbtack edit-icon";
+  icon.className = "fa-solid fa-thumbtack  edit-icon-2";
   submit.type = "submit";
   submit.onclick = () => {
     changeAction(form, "../../Backend/AddTask.php");
   };
   inputs.id = "add" + i;
-  inputs.className = "edit-box hide";
+  inputs.className = "edit-box ";
   inputsbottom.className = "floatcontainer space-even ";
   input.className = "edit-input";
   submit.className = "edit-button info-bg";
