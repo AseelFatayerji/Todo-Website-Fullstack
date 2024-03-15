@@ -13,23 +13,23 @@ window.onload = () => {
 };
 
 function display() {
-  let all = JSON.parse(localStorage.getItem("all-tasks")||"[]");
-    let complete = JSON.parse(localStorage.getItem("complete-task")|| "[]");
+  let all = JSON.parse(localStorage.getItem("all-tasks") || "[]");
+  let complete = JSON.parse(localStorage.getItem("complete-task") || "[]");
   document.getElementById("complete").innerText = complete.length;
-  document.getElementById("comp").value = complete.length;
-  document.getElementById("comp").max = all.length;
-  let progress = JSON.parse(localStorage.getItem("inprogress-task")|| "[]");
+  document.getElementById("comp").value = complete.length * 100;
+  document.getElementById("comp").max = all.length * 100;
+  let progress = JSON.parse(localStorage.getItem("inprogress-task") || "[]");
   document.getElementById("inprogress").innerText = progress.length;
-  document.getElementById("pro").value = progress.length;
-  document.getElementById("pro").max = all.length;
-  let going = JSON.parse(localStorage.getItem("ongoing-task")|| "[]");
+  document.getElementById("pro").value = progress.length * 100;
+  document.getElementById("pro").max = all.length * 100;
+  let going = JSON.parse(localStorage.getItem("ongoing-task") || "[]");
   document.getElementById("ongoing").innerText = going.length;
-  document.getElementById("going").value = going.length;
-  document.getElementById("going").max = all.length;
-  let cancel = JSON.parse(localStorage.getItem("delete-task")|| "[]");
+  document.getElementById("going").value = going.length * 100;
+  document.getElementById("going").max = all.length * 100;
+  let cancel = JSON.parse(localStorage.getItem("delete-task") || "[]");
   document.getElementById("canceled").innerText = cancel.length;
-  document.getElementById("cancel").value = cancel.length;
-  document.getElementById("cancel").max = all.length;
+  document.getElementById("cancel").value = cancel.length * 100;
+  document.getElementById("cancel").max = all.length * 100;
 }
 
 function setUsername() {

@@ -15,11 +15,15 @@ window.onload = () => {
 function setLocalStorage(arr) {
   let all = JSON.parse(localStorage.getItem("all-tasks") || "[]");
   let itemscomplete = JSON.parse(localStorage.getItem("complete-task") || "[]");
-  let itemsprogress = JSON.parse(localStorage.getItem("inprogress-task") || "[]");
-  let itemsongoing = JSON.parse(localStorage.getItem("inprogress-task") || "[]");
+  let itemsprogress = JSON.parse(
+    localStorage.getItem("inprogress-task") || "[]"
+  );
+  let itemsongoing = JSON.parse(
+    localStorage.getItem("inprogress-task") || "[]"
+  );
   for (let i = 0; i < arr.length; i++) {
     let temp = arr[i];
-    all.push(temp);
+    all.push(temp.list);
     if (temp.complete == 1 && !itemscomplete.includes(temp.item)) {
       itemscomplete.push(temp.item);
     } else if (!itemsprogress.includes(temp.item)) {
@@ -98,31 +102,22 @@ function displayOneList(list_name, arr) {
 
   let label = document.createElement("label");
   let ul = document.createElement("ul");
-  let add = document.createElement("i");
-
-  add.className = "fa-solid fa-plus add-icon";
-  add.onclick = () => {
-    displayAddTaskPop(list_name);
-  };
 
   card.className = "list-card accent-bg";
   card_header.className =
     "list_cardheader accent-bg floatcontainer space-between";
   label.innerText = list_name;
-  let pop_container = createAddPop(list_name);
-
   card_header.appendChild(label);
-  card_header.appendChild(add);
   card_body.className = "list_cardbody";
 
   for (let i = 0; i < arr.length; i++) {
     let li = document.createElement("li");
     let item = document.createElement("div");
     let trash = document.createElement("i");
-    let form = document.createElement("form");
+
     let in1 = hiddenInput("username", grabName());
     let in2 = hiddenInput("list_name", list_name);
-
+    let form = document.createElement("form");
     form.method = "post";
     form.appendChild(in1);
     form.appendChild(in2);
@@ -140,7 +135,6 @@ function displayOneList(list_name, arr) {
 
       changeAction(form, "../PHP/DeleteTask.php");
     };
-
     let in3 = hiddenInput("item", temp.item);
     form.appendChild(in3);
     if (temp.list == list_name && temp.complete != 1) {
@@ -176,7 +170,7 @@ function displayOneList(list_name, arr) {
 
         form.appendChild(item);
         form.appendChild(new_contanier);
-        li.appendChild(form)
+        li.appendChild(form);
         ul.appendChild(li);
       } else {
         let dot = document.createElement("i");
@@ -194,7 +188,7 @@ function displayOneList(list_name, arr) {
 
         form.appendChild(item);
         form.appendChild(new_contanier);
-        li.appendChild(form)
+        li.appendChild(form);
         ul.appendChild(li);
       }
     }
@@ -202,7 +196,6 @@ function displayOneList(list_name, arr) {
   card_body.appendChild(ul);
   card.appendChild(card_header);
   card.appendChild(card_body);
-  card.appendChild(pop_container);
   container.appendChild(card);
 }
 function displayAddPop() {
@@ -211,9 +204,7 @@ function displayAddPop() {
 function displayEditPop(i) {
   document.getElementById("edit" + i).classList.remove("hide");
 }
-function displayAddTaskPop(i) {
-  document.getElementById("add" + i).classList.remove("hide");
-}
+
 function createPop(form, i) {
   let inputs = document.createElement("div");
 
@@ -239,50 +230,7 @@ function createPop(form, i) {
   inputs.appendChild(submit);
   return inputs;
 }
-function createAddPop(i) {
-  let inputs = document.createElement("div");
-  let inputstop = document.createElement("div");
-  let inputsbottom = document.createElement("div");
-  let checkbox = document.createElement("div");
 
-  let label = document.createElement("label");
-  let icon = document.createElement("i");
-  let input = document.createElement("input");
-  let check = document.createElement("input");
-  let submit = document.createElement("input");
-
-  input.type = "text";
-  input.name = "additem";
-
-  check.type = "checkbox";
-  check.name = "imp";
-  check.value = "1";
-  check.id = "check";
-
-  label.htmlFor = check.id;
-  label.innerText = "Important";
-  label.className = "checkLabel";
-  icon.className = "fa-solid fa-thumbtack mg-top-3 edit-icon-2";
-  submit.type = "submit";
-  submit.onclick = () => {
-    changeAction(form, "../PHP/AddTask.php");
-  };
-  inputs.id = "add" + i;
-  inputs.className = "edit-box hide";
-  inputsbottom.className = "floatcontainer space-even ";
-  input.className = "edit-input";
-  submit.className = "edit-button info-bg";
-
-  inputstop.appendChild(icon);
-  inputstop.appendChild(input);
-  checkbox.appendChild(check);
-  checkbox.appendChild(label);
-  inputsbottom.appendChild(checkbox);
-  inputsbottom.appendChild(submit);
-  inputs.appendChild(inputstop);
-  inputs.appendChild(inputsbottom);
-  return inputs;
-}
 function hiddenInput(name, value) {
   let input = document.createElement("input");
   input.type = "text";
