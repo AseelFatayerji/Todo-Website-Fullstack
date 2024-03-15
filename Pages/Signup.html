@@ -26,35 +26,41 @@
 
   <body>
     <form action="../PHP/Signup.php" method="post">
-      <div class="card">
-        <div class="cardheader main">Signup</div>
+      <div class="card mg-top-3 mg-left-35">
+        <div class="cardheader main-bg">Signup</div>
         <div class="cardbody">
-          <input type="text" name="name" placeholder="jhon1234567" required />
-          <br />
-          <input
-            type="email"
-            name="email"
-            placeholder="jhondoe@gmail.com"
-            required
-          />
-          <br />
-          <input
-            type="password"
-            id="pass"
-            name="password"
-            placeholder="123456789"
-            required
-          />
-          <br />
-          <input
-            type="password"
-            id="confirm"
-            name="confirm_password"
-            placeholder="123456789"
-            onkeyup="CheckPass()"
-            required
-          />
-          <br />
+          <div class="floatcontainer inputs">
+            <i class="fa-solid fa-user icon"></i
+            ><input
+              type="text"
+              name="name"
+              placeholder="jhon1234567/jhondoe@gmail.com"
+            />
+          </div>
+          <div class="floatcontainer inputs">
+            <i class="fa-solid fa-envelope icon"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="jhondoe@gmail.com"
+              required
+            />
+          </div>
+          <div class="floatcontainer inputs">
+            <i class="fa-solid fa-lock icon"></i>
+            <input type="password" name="password" placeholder="123456789" />
+          </div>
+          <div class="floatcontainer inputs">
+            <i class="fa-solid fa-lock icon"></i>
+            <input
+              type="password"
+              id="confirm"
+              name="confirm_password"
+              placeholder="123456789"
+              onkeyup="CheckPass()"
+              required
+            />
+          </div>
           <div class="hide" id="alert">
             <h3>password don't match</h3>
           </div>

@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Todo List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/3466402afb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./Scripts/Login.js"></script>
+  </head>
 
-<head>
-  <title>Todo List</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./CSS/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kalam:wght@300;400;700&display=swap"
-    rel="stylesheet">
-  <script src="https://kit.fontawesome.com/3466402afb.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <form action="./PHP/Login.php" method="post">
-    <div class="card">
-      <div class="cardheader main">Login</div>
-      <div class="cardbody">
-
-        <input type="text" name="name" placeholder="jhon1234567/jhondoe@gmail.com" />
-        <br />
-        <input type="password" name="password" placeholder="123456789" />
-        <br />
-        <input type="submit" value="Login" />
-        <br />
-        <a href="./Pages/Signup.html">No account? Creat one</a>
-
-
+  <body>
+    <form action="./PHP/Login.php" method="post">
+      <div class="card mg-top-5 mg-left-35">
+        <div class="cardheader main-bg">Login</div>
+        <div class="cardbody">
+          <div class="floatcontainer inputs">
+            <i class="fa-solid fa-user icon"></i
+            ><input
+              type="text"
+              name="name"
+              placeholder="jhon1234567/jhondoe@gmail.com"
+            />
+          </div>
+          <div  class="floatcontainer inputs">
+            <i class="fa-solid fa-lock icon"></i>
+            <input type="password" name="password" placeholder="123456789" />
+          </div>
+          <div>
+            <input type="submit" value="Login" />
+          </div>
+          <div>
+            <a href="./Pages/Signup.html">No account? Creat one</a>
+          </div>
+        </div>
+        <span class="alert-bg popup hide" id="popup">
+          Wrong username or password
+          <i class="fa-regular fa-circle-xmark" onclick="closepop()"> </i>
+        </span>
       </div>
-      <span class="hide" id="popup">
-        <h3 class=" alert  popup">Wrong username or password <i class="fa-regular fa-circle-xmark" onclick="closepop()">
-          </i></h3>
-      </span>
-    </div>
-  </form>
-
-</body>
-
+    </form>
+  </body>
 </html>
