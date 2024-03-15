@@ -12,4 +12,4 @@ $query->bind_param('ssss',$newitem, $username, $name, $item);
 $query->execute();
 $response['status'] = "success";
 $response['message'] = "item $name was successfully deletd for $username";
-header("Location:http://localhost/fullstack/Todo%20Website/Pages/Todolist.html?username=$username", true, 301);
+header("Location:http://localhost/fullstack/Todo%20Website/Front-end/Pages/Todolist.html?username=$username", true, 301);
