@@ -53,14 +53,22 @@ function displayOneList(list_name,arr){
     let card_header = document.createElement("div");
     let card_body = document.createElement("div");
     let ul = document.createElement("ul");
-    card.classList.add("card");
-    card_header.classList.add("card_header");
+    
+    card.className = "list-card";
+    card_header.className = "list_cardheader accent-bg";
     card_header.innerText = list_name;
     for(let i = 0; i < arr.length ;i++){
         let li = document.createElement("li");
+        let item = document.createElement("div");
+        let trash = document.createElement("i");
+        item.className = "item floatcontainer space-between";
+        trash.className = "fa-solid fa-trash-can trash";
+
         let temp = arr[i];
         if(temp.list == list_name){
-            li.innerText = temp.item;
+            item.innerText = temp.item;
+            item.appendChild(trash);
+            li.appendChild(item);
             ul.appendChild(li)
         }
     }

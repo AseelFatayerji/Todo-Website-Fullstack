@@ -76,9 +76,12 @@ a {
 }
 ul {
   list-style-type: none;
+  margin: 0px;
+  padding: 20px;
+  text-align: left;
 }
 li {
-  font-size: large;
+  font-size: 26px;
 }
 nav {
   background-color: white;
@@ -164,7 +167,27 @@ nav {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.list-card{
+    font-family: "Kalam", cursive;
+  border-radius: 15px;
+  width: 20%;
+  font-size: 26px;
+  text-align: center;
+  background-color: white;
+  border-color: 3px solid var(--accent);
+  -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+}
 
+.list_cardheader {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px 15px 0px 0px;
+  }
+  .trash{
+    color: var(--alert);
+  }
 .cardheader {
   font-size: 40px;
   text-align: center;
@@ -173,7 +196,8 @@ nav {
 }
 .cardbody {
   padding: 20px;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 15px 15px;
+  
 }
 .main {
   width: 80%;
@@ -204,6 +228,9 @@ nav {
 .space-even {
   justify-content: space-evenly;
 }
+.space-between {
+    justify-content: space-between;
+  }
 .mg-top-3{
     margin-top: 3%;
 }
