@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,21 +27,31 @@
   <body>
     <nav>
       <header>
-      <div id="user_name" class="user-container">
-        <a href="#" id="Profile.html" onclick="Redirect(this)" class="user"
-          ><label id="user">User Name</label></a
-        >
-      </div>
-      <div class="display-container">
-        <a href="#" id="TodoList.html" onclick="Redirect(this)" class="display"
-          ><label>Display Lists</label></a
-        >
-      </div></header>
-      <footer ><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i></a></footer>
+        <div id="user_name" class="user-container">
+          <a href="#" id="Profile.html" onclick="Redirect(this)" class="user"
+            ><i class="fa-solid fa-user"></i
+            ><label id="user" class="user-label">User Name</label></a
+          >
+        </div>
+        <div class="display-container">
+          <a
+            href="#"
+            id="TodoList.html"
+            onclick="Redirect(this)"
+            class="display"
+            ><i class="fa-solid fa-clipboard-list"></i
+            ><label class="user-label">Display Lists</label></a
+          >
+        </div>
+      </header>
+      <footer>
+        <a href="../index.html"
+          ><i class="fa-solid fa-right-from-bracket"></i
+        ></a>
+      </footer>
     </nav>
-    <div class="main mg-left-16">
-      <div></div>
-      <div class="floatcontainer gap space-even">
+    <div class="main mg-left-13" name="body">
+      <div class="stat-container gap space-even">
         <div class="stats main-bg floatchild">
           On Going Tasks
           <div><progress id="going"> </progress></div>
@@ -54,7 +63,7 @@
           <div id="inprogress" class="right"></div>
         </div>
       </div>
-      <div class="floatcontainer gap space-even">
+      <div class="stat-container gap space-even">
         <div class="stats correct-bg floatchild">
           Completed Task
           <div><progress id="comp"> </progress></div>

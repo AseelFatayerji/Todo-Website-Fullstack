@@ -30,7 +30,8 @@
       <header>
         <div id="user_name" class="user-container">
           <a href="#" id="Profile.html" onclick="Redirect(this)" class="user"
-            ><label id="user">User Name</label></a
+            ><i class="fa-solid fa-user"></i
+            ><label id="user" class="user-label">User Name</label></a
           >
         </div>
         <div class="display-container">
@@ -39,7 +40,8 @@
             id="TodoList.html"
             onclick="Redirect(this)"
             class="display"
-            ><label>Display Lists</label></a
+            ><i class="fa-solid fa-clipboard-list"></i
+            ><label class="user-label">Display Lists</label></a
           >
         </div>
       </header>
@@ -49,17 +51,16 @@
         ></a>
       </footer>
     </nav>
-    <div class="main mg-left-13" name="body">
-      <div class="search"></div>
+    <div class="main mg-left-35" name="body">
       <div class="right">
         <i class="fa-solid fa-plus add-icon" onclick="displayAddPop()"></i>
       </div>
-      <div class="floatcontainer gap space-even" id="lists"></div>
+      <div class="lists floatcontainer gap space-even" id="lists"></div>
     </div>
     <span>
       <form class="hide" id="create" action="../PHP/Create.php" method="post">
         <div class="card info-bg fixed-center">
-          <div class="cardheader info-bg">Create/Add Task </div>
+          <div class="cardheader info-bg">Create/Add Task</div>
           <div class="cardbody">
             <input
               class="hide"

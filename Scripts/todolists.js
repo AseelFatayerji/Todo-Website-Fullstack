@@ -125,7 +125,7 @@ function displayOneList(list_name, arr) {
     let temp = arr[i];
 
     let new_contanier = createPop(form, i);
-    item.className = "floatcontainer space-between";
+    item.className = "item";
     trash.className = "fa-solid fa-trash-can trash";
     trash.onclick = () => {
       let cancel = JSON.parse(localStorage.getItem("delete-task") || "[]");

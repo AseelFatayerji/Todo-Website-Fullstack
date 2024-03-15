@@ -84,16 +84,16 @@ nav {
   padding: 10px;
   font-size: 36px;
 }
-footer{
+footer {
   position: fixed;
   margin-top: 30%;
   margin-left: 10%;
 }
-footer a{
+footer a {
   color: black;
   font-size: 30px;
 }
-footer a:hover{
+footer a:hover {
   color: lightgray;
 }
 .inputs {
@@ -119,6 +119,8 @@ footer a:hover{
   box-shadow: 12px 14px 0px -10px rgba(0, 0, 0, 0.75);
 }
 .user-container {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   border-radius: 10px;
   border: 3px solid var(--main);
@@ -136,10 +138,12 @@ footer a:hover{
   font-size: 36px;
   font-weight: bold;
 }
-.user:hover{
+.user:hover {
   cursor: pointer;
 }
 .display-container {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   border-radius: 10px;
   border: 3px solid lightgray;
@@ -181,10 +185,9 @@ footer a:hover{
   text-align: center;
   background-color: white;
   border: 3px solid var(--accent);
-  -webkit-box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
-box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
-  
+  -webkit-box-shadow: 0px 22px 0px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 22px 0px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 22px 0px -10px rgba(0, 0, 0, 0.75);
 }
 
 .list_cardheader {
@@ -197,7 +200,6 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
   background-color: white;
   font-size: 20x;
   text-align: center;
-  padding: 10px;
   border-radius: 0px 0px 16px 16px;
 }
 .trash {
@@ -249,23 +251,9 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
 }
-.edit-icon-2 {
-  width: 10%;
-  height: 100%;
-  font-size: 26px;
-  padding: 4px  5px  12px  5px;
-  background-color: white;
-  border-radius: 14px 0px 0px 14px;
-  border-right: transparent;
-  border-left: 2px solid rgba(0, 0, 0, 0.75);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-  border-top: 2px solid black;
-  -webkit-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 12px 0px -8px rgba(0, 0, 0, 0.75);
-}
-.checkLabel{
-  font-size:20px;
+
+.checkLabel {
+  font-size: 20px;
   padding-left: 5px;
 }
 .edit-hover:hover {
@@ -294,8 +282,13 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
 .main {
   width: 80%;
   padding: 20px;
+  align-content: center;
 }
-
+.stat-container{
+  margin-left: 10%;
+    margin-bottom: 10px;
+    display: flex;
+}
 .stats {
   width: 10%;
   height: max-content;
@@ -305,6 +298,10 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
   -webkit-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 0px -10px rgba(0, 0, 0, 0.75);
+}
+.item{
+  display: flex;
+  justify-content: space-between;
 }
 
 .fixed-center {
@@ -347,7 +344,6 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
 .mg-top-6 {
   margin-top: 6%;
 }
-
 
 .mg-left-13 {
   margin-left: 13%;
@@ -408,11 +404,173 @@ box-shadow: 0px 17px 0px -10px rgba(0,0,0,0.75);
 }
 
 @media (min-width: 280px) and (max-width: 768px) {
+  nav{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    height: fit-content;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  header{
+    display: flex;
+    width: fit-content;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+  footer{
+    position: relative;
+    margin-right: 10%;
+    margin-top: 0%;
+  }
+  label{
+    font-size: 20px;
+  }
+  input[type="submit"] {
+    font-size: 20px;
+    width: 40%;
+  }
+
+  input[type="text"] {
+    font-size: 20px;
+    width: 40%;
+  }
+  input[type="password"] {
+    font-size: 20px;
+    margin: 0px;
+    width: 40%;
+  }
+  input[type="email"] {
+    font-size: 20px;
+    width: 40%;
+  }
+  .icon{
+    z-index: 1;
+    border-right: 3 px solid black;
+    border-bottom: 3 px solid black;
+    padding: 11px 5px 15px 5px;
+    margin-top: 20px;
+    font-size: 17px;
+    box-shadow: none;
+  }
+  
+  .main{
+    top: 10%;
+    padding-top: 20%;
+    height: 100%;
+    width: fit-content;
+  }
+  .lists{
+    height: 100%;
+    overflow-x: auto;
+  }
+  .hide {
+    display: none;
+  }
+  .right{
+    margin-top: 15%;
+  margin-left: 70%;    
+  }
+.user-container{
+  flex: 1;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+.user-label{
+  display: none;
+}
+.user{
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 0;
+}
+.display-container{
+  flex: 1;
+  display: flex;  
+  width: fit-content;
+  height: fit-content;
+}
+.display{
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 0;
+}
+.item{
+  display: flex;
+  justify-content: space-around;
+}
   .card {
+    position: relative;
+    margin-right:10%;
+    margin-left: 5%;
+    text-align: center;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+  }
+  .cardheader{
+    font-size: 26px;
+  }
+  .cardbody{
+    width: fit-content;
+    height: fit-content;
+  }
+  .inputs{
+    display: flex;
+    gap: -10px;
+  }
+  .stat-container{
+    padding-top: 10%;
+    
+  }
+  .stats {
+    width: 90%;
+    height: max-content;
+  }
+  .list-card {
     position: relative;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: fit-content;
+    font-size: 15px;
+    margin-top: 10%;
+  }
+  .list_cardbody{
+    width: 80%;
+    width: fit-content;
+    font-size: 15px;
+  }
+
+  .edit-button{
+    font-size: 15px;
+  }
+  .edit-input{
+    font-size: 15px;
+  }
+  .trash{
+    font-size: 20px;
+  }
+  .complete{
+    font-size: 20px;
+  }
+  .edit-hover{
+    font-size: 20px;
+  }
+  .edit-icon{
+    font-size: 16px;
+    padding: 7px 5px 11px 5px;
+  }
+  .mg-top-2{
+    margin-top: 7%;
+  }
+  .mg-left-16{
+    margin-left: 0%;
+  }
+  .mg-left-13{
+    margin-left: 0;
   }
   .floatcontainer {
     display: block;
