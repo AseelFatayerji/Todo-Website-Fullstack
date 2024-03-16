@@ -20,7 +20,7 @@ if ($email_exists == 0) {
     $query->execute();
     $response['status'] = "success";
     $response['message'] = "user $name was created successfully";
-    header("Location:http://localhost/fullstack/Todo%20Website/Pages/Porfile.html?username=$name" , true, 301);
+    header("Location:http://localhost/fullstack/Todo%20Website/Pages/Profile.html?username=$name" , true, 301);
     exit;
 } else {
     $response["status"] = "user already exists";

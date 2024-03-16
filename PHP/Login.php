@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include 'connection.php';
 
 $email = $_POST['name'];
 $password = $_POST['password'];
@@ -14,9 +14,6 @@ $num_rows = $query->num_rows();
 
 if ($num_rows == 0) {
     $response['status'] = "user not found";
-//     echo "<script>
-//     localStorage.setItem('loginfailed', 'true');  
-// </script>";
     header("Location:http://localhost/fullstack/Todo%20Website", true, 301);
 } else {
     if ($password == $hashed_password) {
@@ -24,13 +21,10 @@ if ($num_rows == 0) {
         $response['user_id'] = $id;
         $response['name'] = $name;
         $response['email'] = $email;
-        header("Location:http://localhost/fullstack/Todo%20Website/Pages/Porfile.html?username=$name", true, 301);
+        header("Location:http://localhost/fullstack/Todo%20Website/Pages/Profile.html?username=$name", true, 301);
         exit;
     } else {
         $response['status'] = "incorrect credentials $email";
-//         echo "<script>
-//         localStorage.setItem('loginfailed', 'true');  
-// </script>";
         header("Location:http://localhost/fullstack/Todo%20Website", true, 301);
 
     }
